@@ -1,0 +1,17 @@
+body {
+    background-color: azure;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    padding: 20px;
+}
+
+.table-list {
+    border: 2px solid black;   
+}
