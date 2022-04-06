@@ -14,4 +14,9 @@ table {
 
 .table-list {
     border: 2px solid black;   
+    background-color: white;
+    text-align: center;
+    padding: 25px 10px;
+    margin: 50% 10px 10px 10px;
+    border: none !important;
 }

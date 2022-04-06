@@ -1,12 +1,13 @@
+import React from "react";
 import Table from 'react-bootstrap/Table';
 import "../css/table.css";
-import React from "react";
+import { useState, useEffect } from "react";
 
 const BookTable = () => {
     const [books, setBook] = useState([]);
     useEffect(() => {
 
-        fetch("http://18.140.66.242:3002/books", {
+        fetch("http://localhost:3002/books", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -25,7 +26,6 @@ const BookTable = () => {
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <th>Code</th>
                         <th>Price</th>
                         <th>Authors</th>
                         <th>ISBN</th>
@@ -40,7 +40,7 @@ const BookTable = () => {
                             <td>{data.price}</td>
                             <td>{data.author}</td>
                             <td>{data.isbn}</td>
-                            <td>{data.pubdate.slice(0, 10)}</td>
+                            <td>{data.publishdate.slice(0, 10)}</td>
                         </tr>
                     )}
                 </tbody>
