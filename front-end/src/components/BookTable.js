@@ -7,7 +7,7 @@ const BookTable = () => {
     const [books, setBook] = useState([]);
     useEffect(() => {
 
-        fetch("http://localhost:3002/books", {
+        fetch("http://18.140.66.242/books", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
