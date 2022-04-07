@@ -2,19 +2,17 @@ import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
-import "react-datepicker/dist/react-datepicker.css";
-import "../css/modal.css";
 
-function ModalnButton() {
+const Edit = (props) => {
     const [show, setShow] = useState(false);
 
-    const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
-    const addBook = (e) => {
+    const handleEdit = (e) => {
         e.preventDefault()
-        fetch(`http://18.140.66.242:3002/addBook`, {
-            method: "POST",
+        fetch(`http://18.140.66.242:3002/updateBook/${props.book.isbn}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -24,7 +22,7 @@ function ModalnButton() {
                     "price": e.target[1].value,
                     "author": e.target[2].value,
                     "isbn": e.target[3].value,
-                    "publishdate": e.target[4].value,
+                    "pubdate": e.target[4].value,
                 }
             )
         })
@@ -33,52 +31,47 @@ function ModalnButton() {
                 handleClose()
             })
     }
-
     return (
         <>
-            <Button className='btn' onClick={handleShow}>
-                + Add Book
-            </Button>
-
-            <Modal show={show} onHide={handleClose} centered>
+            <img src='/img/edit.png' alt="" onClick={handleShow} />
+            <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Book</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form onSubmit={addBook}>
+                    <Form onSubmit={handleEdit}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Control
-                                type="text" placeholder="Name" defaultValue=""
+                                type="text" placeholder="Name" defaultValue={props.book.name}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Control
-                                type="text" placeholder="Price" defaultValue=""
+                                type="text" placeholder="Price" defaultValue={props.book.price}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Control
-                                type="text" placeholder="Author" defaultValue=""
+                                type="text" placeholder="Author" defaultValue={props.book.author}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Control
-                                type="text" placeholder="ISBN" defaultValue=""
+                                type="text" placeholder="ISBN" defaultValue={props.book.isbn}
                             />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Control
-                                type="date" placeholder="Published Date" defaultValue=""
+                                type="date" placeholder="Published Date" defaultValue={props.book.pubdate}
                             />
                         </Form.Group>
-                        <Button variant="primary" type='submit'>
-                            Save
-                        </Button>
+                        <Button variant="primary" type='submit'>Save</Button>
                     </Form>
                 </Modal.Body>
             </Modal>
         </>
-    );
+
+    )
 }
 
-export default ModalnButton;
+export default Edit;
