@@ -45,7 +45,7 @@ const BookTable = () => {
                                 <td>{data.isbn}</td>
                                 <td>{data.publishdate.slice(0, 10)}</td>
                                 <td><Edit book={data} /></td>
-                                <td><Delete books={data.isbn} /></td>
+                                <td><Delete books={data._id} /></td>
                             </tr>
                         )}
                     </tbody>

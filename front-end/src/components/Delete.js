@@ -9,10 +9,9 @@ const Delete = (props) => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const removeBook = (e) => {
+    const removeBook = (id) => {
         setRemove(true)
-        console.log(e)
-        fetch(`http://18.140.66.242:3002/deleteBook/${e}`, {
+        fetch(`http://18.140.66.242:3002/deleteBook/${id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -40,7 +39,7 @@ const Delete = (props) => {
                     <Button onClick={handleClose}>
                         Cancel
                     </Button>
-                    <Button variant="primary" onClick={() => removeBook(props.data)}>
+                    <Button variant="primary" onClick={() => removeBook(props.book._id)}>
                         Delete
                     </Button>
                 </Modal.Footer>

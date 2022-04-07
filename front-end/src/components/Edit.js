@@ -11,7 +11,7 @@ const Edit = (props) => {
 
     const handleEdit = (e) => {
         e.preventDefault()
-        fetch(`http://18.140.66.242:3002/updateBook/${props.book.isbn}`, {
+        fetch(`http://18.140.66.242:3002/updateBook/${props.book._id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -62,7 +62,7 @@ const Edit = (props) => {
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Control
-                                type="date" placeholder="Published Date" defaultValue={props.book.pubdate}
+                                type="date" placeholder="Published Date" defaultValue={props.book.publishdate}
                             />
                         </Form.Group>
                         <Button variant="primary" type='submit'>Save</Button>
