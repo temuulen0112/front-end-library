@@ -9,7 +9,6 @@ import ModalnButton from "./Modal";
 const BookTable = () => {
     const [books, setBook] = useState([]);
     useEffect(() => {
-
         fetch("http://18.140.66.242:3002/books", {
             method: "GET",
             headers: {
@@ -46,7 +45,7 @@ const BookTable = () => {
                                 <td>{data.isbn}</td>
                                 <td>{data.publishdate.slice(0, 10)}</td>
                                 <td><Edit book={data} /></td>
-                                <td><Delete books={data.id} /></td>
+                                <td><Delete books={data.isbn} /></td>
                             </tr>
                         )}
                     </tbody>

@@ -22,7 +22,7 @@ const Edit = (props) => {
                     "price": e.target[1].value,
                     "author": e.target[2].value,
                     "isbn": e.target[3].value,
-                    "pubdate": e.target[4].value,
+                    "publishdate": e.target[4].value,
                 }
             )
         })

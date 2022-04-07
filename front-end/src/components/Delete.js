@@ -13,7 +13,7 @@ const Delete = (props) => {
         setRemove(true)
         console.log(e)
         fetch(`http://18.140.66.242:3002/deleteBook/${e}`, {
-            method: "DELETE",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -46,7 +46,6 @@ const Delete = (props) => {
                 </Modal.Footer>
             </Modal>
         </>
-
     )
 }
 
