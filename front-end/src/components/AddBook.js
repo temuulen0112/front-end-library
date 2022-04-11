@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import "react-datepicker/dist/react-datepicker.css";
 import "../css/modal.css";
 
-function ModalnButton() {
+function AddBook() {
     const [show, setShow] = useState(false);
 
     const handleShow = () => setShow(true);
@@ -81,4 +81,4 @@ function ModalnButton() {
     );
 }
 
-export default ModalnButton;
+export default AddBook;

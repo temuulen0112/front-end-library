@@ -3,8 +3,8 @@ import Table from 'react-bootstrap/Table';
 import { useState, useEffect } from "react";
 import "../css/table.css";
 import Edit from "../components/Edit";
-import Delete from "./Delete";
-import ModalnButton from "./Modal";
+import Delete from "../components/Delete";
+import AddBook from "../components/AddBook";
 
 const BookTable = () => {
     const [books, setBook] = useState([]);
@@ -17,6 +17,7 @@ const BookTable = () => {
         })
             .then(res => res.json())
             .then(res => {
+                console.log(res);
                 setBook(res.data)
             })
     }, []);
@@ -24,7 +25,7 @@ const BookTable = () => {
     return (
         <>
             <div className="table-list">
-                <Table responsive>
+                <Table striped bordered hover responsive>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -51,7 +52,7 @@ const BookTable = () => {
                     </tbody>
                 </Table>
             </div>
-            <ModalnButton book={books} />
+            <AddBook book={books} />
         </>
     )
 }
